@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teresa Heart Foundation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5e2a84;
+            --accent: #9e57d5;
+            --dark: #1b1b1b;
+            --light: #f8f6fb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(94, 42, 132, 0.95), rgba(27, 27, 27, 0.95)),
+                url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1600&q=80') center/cover;
+            color: #fff;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2.5rem 5vw;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .donate-btn {
+            padding: 0.75rem 1.5rem;
+            background: #fff;
+            color: var(--primary);
+            border-radius: 999px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero {
+            max-width: 600px;
+            margin: 5rem 0 3rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 3.75rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        main {
+            background: #fff;
+            border-radius: 2rem 2rem 0 0;
+            margin-top: -4rem;
+            padding: 4rem 5vw;
+        }
+
+        section + section {
+            margin-top: 4rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(94, 42, 132, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(94, 42, 132, 0.15);
+        }
+
+        .initiatives {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .initiative-card {
+            background: #1f1a25;
+            color: #fff;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .initiative-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(158, 87, 213, 0.4), rgba(27, 27, 27, 0.6));
+            mix-blend-mode: screen;
+            pointer-events: none;
+        }
+
+        .initiative-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .initiative-card p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .initiative-card a {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+            display: inline-block;
+            margin-top: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .impact-stats .stat {
+            background: #fff;
+            border: 2px solid var(--primary);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .impact-stats h3 {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .newsletter {
+            background: var(--primary);
+            color: #fff;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            display: grid;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .newsletter form {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .newsletter input[type="email"] {
+            flex: 1;
+            min-width: 220px;
+            padding: 0.75rem 1rem;
+            border-radius: 999px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .newsletter button {
+            border: none;
+            background: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.75rem;
+            border-radius: 999px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding: 2rem 5vw;
+            background: #0f0f0f;
+            color: #d8d6de;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        footer ul {
+            list-style: none;
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        footer a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #8a8595;
+        }
+
+        @media (max-width: 720px) {
+            nav ul {
+                display: none;
+            }
+
+            header {
+                padding: 1.75rem 7vw;
+            }
+
+            main {
+                padding: 3rem 7vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Teresa Heart Foundation</div>
+            <ul>
+                <li><a href="#mission">Our Mission</a></li>
+                <li><a href="#initiatives">Initiatives</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#newsletter">Newsletter</a></li>
+            </ul>
+            <a class="donate-btn" href="#donate">Donate</a>
+        </nav>
+        <div class="hero">
+            <h1>Nurturing Purpose, Courage, and Compassion in Every Heart</h1>
+            <p>Teresa Heart Foundation is a non-profit empowering young women and girls through leadership, education, and purpose-driven programs across Africa. We believe in creating safe spaces where voices are heard, potential is nourished, and dreams are realized.</p>
+            <div class="cta-group">
+                <a class="donate-btn" href="#donate">Donate Now</a>
+                <a class="donate-btn" style="background: transparent; border: 2px solid #fff; color: #fff;" href="#initiatives">Explore Initiatives</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="mission">
+            <h2>Our Mission</h2>
+            <div class="mission-grid">
+                <article class="card">
+                    <h3>Empowerment</h3>
+                    <p>Building confidence, leadership, and resilience in young women and girls to lead with purpose and conviction.</p>
+                </article>
+                <article class="card">
+                    <h3>Education</h3>
+                    <p>Providing mentorship, skills training, and educational support that transforms lives and communities.</p>
+                </article>
+                <article class="card">
+                    <h3>Community</h3>
+                    <p>Creating supportive networks of changemakers committed to uplifting one another and driving social impact.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="initiatives">
+            <h2>Signature Initiatives</h2>
+            <div class="initiatives">
+                <article class="initiative-card">
+                    <h3>Young Women Lead</h3>
+                    <p>Intensive leadership journeys for young women to innovate, advocate, and lead change within their communities.</p>
+                    <a href="young-women-lead.html">Discover Program</a>
+                </article>
+                <article class="initiative-card">
+                    <h3>Young Girls Lead</h3>
+                    <p>Safe, inspiring spaces for girls ages 10-16 to explore STEM, arts, and entrepreneurship with mentorship support.</p>
+                    <a href="young-girls-lead.html">Discover Program</a>
+                </article>
+                <article class="initiative-card">
+                    <h3>Alpha Purpose</h3>
+                    <p>Purpose-driven coaching and retreats centered on self-discovery, mental wellness, and faith-guided leadership.</p>
+                    <a href="alpha-purpose.html">Discover Program</a>
+                </article>
+                <article class="initiative-card">
+                    <h3>Kuwala Mwanaci</h3>
+                    <p>A grassroots initiative connecting rural girls to mentorship, scholarships, and community-led support networks.</p>
+                    <a href="kuwala-mwanaci.html">Discover Program</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="impact">
+            <h2>Impact at a Glance</h2>
+            <div class="impact-stats">
+                <div class="stat">
+                    <h3>5K+</h3>
+                    <p>Young women and girls empowered through our programs.</p>
+                </div>
+                <div class="stat">
+                    <h3>120</h3>
+                    <p>Community mentors championing leadership and purpose.</p>
+                </div>
+                <div class="stat">
+                    <h3>25</h3>
+                    <p>Partner schools and community centers engaged.</p>
+                </div>
+                <div class="stat">
+                    <h3>15</h3>
+                    <p>African countries represented in our growing network.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="donate">
+            <h2>Support the Mission</h2>
+            <div class="card" style="background: #1f1a25; color: #fff;">
+                <p>Your generosity fuels leadership development, mentorship programs, and vital resources for young women and girls.</p>
+                <ul style="margin: 1.5rem 0 2rem 1.5rem;">
+                    <li>Provide scholarships for emerging leaders</li>
+                    <li>Fund safe spaces for growth and mentorship</li>
+                    <li>Invest in community-led solutions for girls</li>
+                </ul>
+                <a class="donate-btn" href="https://www.paypal.com/donate" target="_blank" rel="noopener">Give Today</a>
+            </div>
+        </section>
+
+        <section id="newsletter">
+            <div class="newsletter">
+                <div>
+                    <h2 style="color:#fff;">Stay Connected</h2>
+                    <p>Join our community for program updates, impact stories, and opportunities to volunteer.</p>
+                </div>
+                <form>
+                    <label for="email" class="sr-only">Email address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <h3>Contact</h3>
+            <ul>
+                <li>Email: hello@teresaheart.org</li>
+                <li>Phone: +265 123 456 789</li>
+                <li>Location: Lilongwe, Malawi</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#mission">About</a></li>
+                <li><a href="#initiatives">Programs</a></li>
+                <li><a href="#donate">Donate</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Follow</h3>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+                <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="https://www.twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+            </ul>
+        </div>
+        <p class="footer-bottom">© <span id="year"></span> Teresa Heart Foundation. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
